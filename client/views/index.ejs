@@ -1,0 +1,52 @@
+<html>
+        <head lang="en">
+            <meta charset="UTF-8">
+            <link rel="stylesheet" type="text/css" href="/css/style.css">
+            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    
+            <title>Loging Registration</title>
+        </head>
+    
+        <body> 
+            <% if(errors) { %>
+                <% if (errors.errors){ %>
+                    <% for ( y in errors.errors) { %>
+                        <h3><%= errors.errors[y].message %></h3>
+                    <% } %>
+                <% } %>
+                <% if (errors.errmsg){ %>
+                    <h3>Email already in use</h3>
+                <% } %>
+            <% } %>
+            <div class="">
+            <h1>Registration</h1>
+                <form action="/users/new" method="post">
+                    <label for="first_name">First Name:</label>
+                    <input type="text" name="first_name" id="first_name">
+                    <label for="last_name">Last Name:</label>
+                    <input type="text" name="last_name" id="last_name">
+                    <label for="email">Email:</label>
+                    <input type="text" name="email" id="email">
+                    <label for="birthday">Birthday:</label>
+                    <input type="date" name="birthday" id="birthday">
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" id="password">
+                    <label for="confirm">Confirm Password:</label>
+                    <input type="password" name="confirm" id="confirm">
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+            <div>
+                <h1>Login</h1>
+                <form action="/users" method="post">
+                    <label for="email">Email:</label>
+                    <input type="text" name="email" id="email">
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" id="password">
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+
+        </body>
+    
+    </html>
